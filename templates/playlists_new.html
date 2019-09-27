@@ -1,0 +1,41 @@
+<!-- templates/playlists_new.html-->
+{% extends 'base.html'%}
+
+{% block content %}
+<!-- 
+    action - where we want form to submit data to
+    fieldset - a set of form controls/attribues/inputs
+    legend - name for the fieldset
+-->
+<form method='POST' action='/playlists'>
+    <fieldset>
+        <legend> New Playlist </legend>
+        <!-- Title -->
+        <p>
+            <label for='title'> Title </label>
+            <br>
+            <input id='playlist-title' type='text' name='title' />
+        </p>
+        <!-- Description -->
+        <p>
+            <label for='description'> Description </label>
+            <br>
+            <input id='description' type='text' name='description' />
+        </p>
+        <!-- Video Links -->
+        <p>
+            <label for='playlist-videos'> Videos </label>
+            <br>
+            <p>
+                Add videos in the form of https://youtube.com/embed/KEY'. Separate with a newline.
+            </p>
+            <textarea id='playlist-videos' name='videos' rows='10'></textarea>
+        </p>
+    </fieldset>
+    <!-- Button -->
+    <p>
+        <button type='submit'> Save Playlist </button>
+    </p>
+</form>
+
+{% endblock %}
