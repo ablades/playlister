@@ -31,7 +31,7 @@ def playlists_submit():
     #inserts into playlists and stores the new id in playlist_id
     playlist_id = playlists.insert_one(playlist).inserted_id
     #returns url given by playlistshow function with playlist_id parameter
-    return redirect(url_for('playlists_show',playlist_id=playlist_id))
+    return redirect(url_for('playlists_show', playlist_id=playlist_id))
 
 @app.route('/playlists/new')
 def playlists_new():
@@ -42,7 +42,7 @@ def playlists_new():
 @app.route('/playlists/<playlist_id>')
 def playlists_show(playlist_id):
     """Show a single playlist."""
-    playlist = playlists.find_one({{'id': ObjectId(playlist_id)}})
+    playlist = playlists.find_one({'id': ObjectId(playlist_id)})
     return render_template('playlists_show.html',playlist=playlist)
 
 
