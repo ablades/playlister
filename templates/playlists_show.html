@@ -15,4 +15,11 @@
 
 <!-- Route to edit a playlist -->
 <p><a href='/playlists/{{ playlist._id }}/edit'>Edit</a></p>
+
+<!-- Creates a delete button Delete button -->
+<p>
+    <form method='POST' action='/playlists/{{ playlist._id }}/delete'>
+        <button type='submit'>Delete</button>
+    </form>
+</p>
 {% endblock %}
