@@ -29,6 +29,7 @@ def playlists_submit():
         'videos' : request.form.get('videos').split(),
         'rating' : request.form.get('rating')
     }
+
     #inserts into playlists and stores the new id in playlist_id
     playlist_id = playlists.insert_one(playlist).inserted_id
     #returns url given by playlistshow function with playlist_id parameter
