@@ -7,45 +7,39 @@ Value - Pass in values of playlist we want to edit -->
     fieldset - a set of form controls/attribues/inputs
     legend - name for the fieldset
 -->
-<fieldset>
-    <legend>{{ title }}</legend>
-    <!-- Title -->
-    <p>
-        <label for='playlist-title'>Title</label>
-        <br>
-        <input id='playlist-title' type='text' name='title' value='{{ playlist.title }}'/>
-    </p>
-    <!-- Description-->
-    <p>
-        <label for='description'>Description</label>
-        <br>
-        <input id='description' type='text' name='description' value='{{ playlist.description }}' />
-      </p>
-    <!-- Video Links -->
-    <p>
-        <label for='playlist-videos'>Videos</label>
-        <br>
-        <p>Add videos in the form of 'https://youtube.com/embed/KEY'. Separate with a newline.</p>
-        <textarea id='playlist-videos' name='videos' rows='10' />{{ "\n".join(playlist.videos) }}</textarea>
-      </p>
+    <fieldset>
+            <legend>Edit Playlist</legend>
+            <!-- TITLE -->
+            <div class='form-group'>
+                <label for='playlist-title'>Title</label><br>
+                <input class='form-control' id='playlist-title' type='text' name='title' value='{{ playlist.title }}'/>
+            </div>
+        
+            <!-- DESCRIPTION -->
+            <div class='form-group'>
+                <label for='description'>Description</label><br>
+                <input class='form-control' id='description' type='text' name='description' value='{{ playlist.description }}' />
+            </div>
+        
+            <!-- Video Links -->
+            <div class='form-group'>
+                <label for='playlist-videos'>Videos</label><br/>
+                <p class='text-muted'>Add videos in the form of 'https://youtube.com/embed/KEY'. Separate with a newline.</p>
+                <textarea class='form-control' id='playlist-videos' name='videos' rows='10' />{{ "\n".join(playlist.videos) }}</textarea>
+            </div>
 
-    <!-- Ratings(Drop Down Menu)-->
-    <p>
-        <label for='ratings'> Rating:  </label>
-        <br>
-        <select name='rating'>
-            <option value= ' &#9733;' > &#9733;</option>
-            <option value= ' &#9733; &#9733;' > &#9733; &#9733; </option>
-            <option value= ' &#9733; &#9733; &#9733;' > &#9733; &#9733; &#9733;</option>
-            <option value= ' &#9733; &#9733; &#9733; &#9733;' > &#9733; &#9733; &#9733; &#9733;</option>
-            <option value= ' &#9733; &#9733; &#9733; &#9733; &#9733;' > &#9733; &#9733; &#9733; &#9733; &#9733;</option>
-        </select>
-    </p>
-</fieldset>
-    <!-- Button -->
-    <p>
-        <button type='submit'>Save Playlist</button>
-    </p>
-    <p>
-        <button type='reset'>Reset Changes</button>
-    </p>
+                <!-- Ratings(Drop Down Menu)-->
+            <div class ='form-group '>
+                <label for='ratings'> Rating:  </label>
+                <br>
+                <select name='rating'>
+                    <option value= ' &#9733;' > &#9733;</option>
+                    <option value= ' &#9733; &#9733;' > &#9733; &#9733; </option>
+                    <option value= ' &#9733; &#9733; &#9733;' > &#9733; &#9733; &#9733;</option>
+                    <option value= ' &#9733; &#9733; &#9733; &#9733;' > &#9733; &#9733; &#9733; &#9733;</option>
+                    <option value= ' &#9733; &#9733; &#9733; &#9733; &#9733;' > &#9733; &#9733; &#9733; &#9733; &#9733;</option>
+                </select>
+            </div>
+
+
+        </fieldset>
