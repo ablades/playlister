@@ -9,6 +9,7 @@ pylint = "*"
 [packages]
 flask = "*"
 pymongo = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
