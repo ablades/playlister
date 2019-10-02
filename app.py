@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-
+import os
+#Points to mongo daemon URI if it exisits
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
 #Creates Mongo Client that connects to default host
-client = MongoClient()
+client = MongoClient(host=host)
 #Gets the database from client called Playlister (creates it if it doesnt exist)
-db = client.Playlister
+db = client.get_default_database()
 #Retrieves the collection(group of documents)
 playlists = db.playlists
 
@@ -77,5 +79,6 @@ def playlists_delete(playlist_id):
     return redirect(url_for('playlists_index'))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    #Change port to allow running on heroku
+     app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
     
